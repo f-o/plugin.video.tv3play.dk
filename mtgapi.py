@@ -35,7 +35,8 @@ class JsonApi(object):
 
         if queryParams:
             url += '?' + urllib.urlencode(queryParams)
-
+        if "limit" and "channel=9000" in url:
+            url += "&limit=100"
         xbmc.log('Calling API: {0}'.format(url))
 
         content = self._http_request(url)
