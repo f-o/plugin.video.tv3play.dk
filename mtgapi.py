@@ -107,7 +107,9 @@ class MtgApi(object):
         """
         Returns a url to the channel icon
         """
-        return self._config['_links']['channel_bug']['href'].format(channel=channel_id)
+        url = self._config['_links']['channel_bug']['href'].format(channel=channel_id)
+        url = url.replace("https","http")
+        return url
 
     def get_categories(self):
         """
